@@ -1,22 +1,16 @@
 largest = None
 smallest = None
-
 while True:
-    num = input("enter the input : ")
-
+    num = input("Enter the input: ")
     if num == "done":
         break
-
     try:
-        num_int = int(num)
-
-        if largest is None or num_int > largest:
-            largest = num_int
-        if smallest is None or num_int < smallest:
-            smallest = num_int
-
-    except ValueError:
-        print('Invalid Number')
-
-print("Largest:", largest)
-print("Smallest:", smallest)
+        num_1 = int(num)
+        if largest is None or num_1 > largest:
+            largest = num_1
+        if smallest is None or num_1 < smallest:
+            smallest = num_1
+    except:
+        print('Invalid input')
+print("largest", largest)
+print("smallest", smallest)
