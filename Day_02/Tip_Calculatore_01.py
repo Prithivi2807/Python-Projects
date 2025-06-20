@@ -10,5 +10,3 @@ bill_with_tip = bill * (1+ tips /100)
 print("Total bill", bill_with_tip)
 each_pay = bill_with_tip/people
 print(f"each person should pay ${each_pay}")
-
-

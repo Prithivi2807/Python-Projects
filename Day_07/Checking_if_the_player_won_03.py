@@ -36,4 +36,5 @@ while "_" in display:
 print()
 print(display)
 
-if "_" not in display: 
+if "_" not in display:
+    print("Congratulations! You've guessed the word correctly!")

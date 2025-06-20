@@ -3,6 +3,12 @@
 import random
 import hangman_art
 import hangman_words
+import os
+
+def clear():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+
 #TODO-1: - Update the word list to use the 'word_list' from hangman_words.py
 #Delete this line: word_list = ["ardvark", "baboon", "camel"]
 word_list = hangman_words.word_list
@@ -27,6 +33,8 @@ for _ in range(word_length):
 
 while not end_of_game:
     guess = input("Guess a letter: ").lower()
+
+    # clear() ##It clears the previous output, so we can see only the new output
 
     #TODO-4: - If the user has entered a letter they've already guessed, print the letter and let them know.
     if guess in display:

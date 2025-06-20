@@ -1,6 +1,6 @@
 print(3 * 3 + 3 / 3 - 3)
 # PEMDASLR left to right
-result = (8 + 2) * 3 ** 2 / (4 %3) + 5 - 6 //3
+result = (8 + 2) * 3 ** 2 / (4 % 3) + 5 - 6 // 3
 print(result)
 
 # Modulo division example
