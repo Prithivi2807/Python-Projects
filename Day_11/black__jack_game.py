@@ -43,9 +43,7 @@ def compare(user_score, computer_score):
       return "you lose"
 
 def play_game():
-
   print(logo)
-
   #Hint 5: Deal the user and computer 2 cards each using deal_card() and append().
   user_cards = []
   computer_cards = []
@@ -73,7 +71,6 @@ def play_game():
 
     print(f"  your cards: {user_cards}, current score: {user_score}")
     print(f"  computer_first_card: {computer_cards[0]}")
-
 
     if user_score == 0 or computer_score == 0 or user_score > 21:
       is_game_over = True

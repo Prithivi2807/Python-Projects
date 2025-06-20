@@ -21,9 +21,6 @@ def add_new_country(country_visited, visited_times, cities_visited):
   new_country["cities"] = cities_visited
   travel_log.append(new_country)
 
-
-
 #🚨 Do not change the code below
 add_new_country("Russia", 2, ["Moscow", "Saint Petersburg"])
 print(travel_log)
-

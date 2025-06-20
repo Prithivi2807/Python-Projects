@@ -8,10 +8,9 @@ travel_log={
 
 print(travel_log)
 
-
 # Nesting a dictionary in a List
 
-travel_log=[
+travel_log_1=[
   {
     "Country":"France",
     "Cities_visited": ["Paris", "Lille", "dijon"],
@@ -23,4 +22,5 @@ travel_log=[
     "Total_visits": 5
   },
 ]
-
+print()
+print(travel_log_1)

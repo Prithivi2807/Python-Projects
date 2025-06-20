@@ -14,7 +14,7 @@ guess = input("Guess a Letter: ")
 # if guess in chosen_word:
     # print("right")
 for letter in chosen_word:
-    if letter == guess:
+    if letter in guess:
         print("Right")
     else:
         print("Wrong")
