@@ -1,22 +1,16 @@
-#Step 3
-
-# a = 3 
-# if not a > 1: # false
-# a = 0 
-# if not a > 1: # True
 
 import random
 word_list = ["aardvark", "baboon", "camel"]
 chosen_word = random.choice(word_list)
 word_length = len(chosen_word)
 
-#Testing code
-print(f'Pssst, the solution is {chosen_word}.')
+# Testing Code 
+print(f"Pssst, the solution is {chosen_word}")
 
-#Create blanks
+# Create blanks 
 display = []
 for _ in range(word_length):
-    display += "_"
+  display += "_"
 print(display)
 
 #TODO-1: - Use a while loop to let the user guess again. 
@@ -26,16 +20,16 @@ print(display)
 while "_" in display:
     guess = input("Guess a letter: ").lower()
 
-#Check guessed letter
+# Check guessed letter
     for position in range(word_length):
         letter = chosen_word[position]
-        # print(f"Current position: {position}\n Current letter: {letter}\n Guessed letter: {guess}")
+        # print(f"Current position: {position}\n Current letter: {letter}\n Guessed letter: {guees}")
         if letter == guess:
-            display[position] = letter
+          display[position] = letter
     print(display)
 
 print()
 print(display)
 
 if "_" not in display:
-    print("Congratulations! You've guessed the word correctly!")
+   print("Congratulations! You've guessed the word correctly!")

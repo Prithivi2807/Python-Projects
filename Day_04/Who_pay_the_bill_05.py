@@ -1,7 +1,7 @@
 import random
 
 names_string = input("Give me everybody's names, separated by a"
-                     "comma.")
+                     " comma, ")
 names = names_string.split(", ")
 # print(len(names))
 rand_num = len(names)

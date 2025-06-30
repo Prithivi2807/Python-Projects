@@ -32,6 +32,6 @@ random.shuffle(password)
 # Convert list to string
 password_str = ""
 for char in password:
-    password_str = password_str + char
+    password_str += char
 
 print(f"your password is: {password_str}")
