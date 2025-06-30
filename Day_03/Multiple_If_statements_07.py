@@ -6,7 +6,7 @@ if height >= 120:
     age = int(input("what is your age ?"))
     if age < 12:
         bill = 5
-        print("Please pa $5.")
+        print("Please pay $5.")
     elif age <=18:
         bill = 7
         print("Please pay $7.")

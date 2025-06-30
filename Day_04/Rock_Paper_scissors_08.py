@@ -41,7 +41,7 @@ else:
     print(f"Computer choosed: ")
     print(list[user2])
 
-    if user1 ==0 and user2== 2: # 0 Rock, 2 Scissor
+    if user1 == 0 and user2 == 2: # 0 Rock, 2 Scissor
         print("you win!")
     elif user2 ==0 and user2== 2:
         print("you lose")

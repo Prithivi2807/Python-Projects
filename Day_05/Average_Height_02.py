@@ -23,13 +23,3 @@ print(total_students)
 average_height = total_height / total_students 
 print(average_height)
 
-
-
-
-
-
-
-
-
-
-
