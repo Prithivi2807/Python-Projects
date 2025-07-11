@@ -6,8 +6,8 @@ class Ball(Turtle):
     super().__init__()
     self.shape("circle")
     self.color("white")
-    self.shapesize(stretch_wid=1, stretch_len=1)
-    self.penup()
+    self.shapesize(stretch_wid=1, stretch_len=1) # 20, 20 = (1, 1)
+    self.penup()    # hide the line drawings
     # self.goto(position)
     self.x_move = 10  # change 10 to 1 reduce the ball speed option 2 
     self.y_move = 10  # either time.sleep(0.1) option 1
