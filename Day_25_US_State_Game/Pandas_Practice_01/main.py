@@ -19,7 +19,7 @@ print(data_dict)
 
 temp_list = data["temp"].to_list()
 print(temp_list)
-print(len(temp_list))\
+print(len(temp_list))
 # Find the mean in the temperature column
 # method 1
 temperature_avg = sum(temp_list)/ len(temp_list)
@@ -34,7 +34,7 @@ print(data["temp"].max())
 
 # Get Data in columns
 print(data["condition"])
-print(data.condition)
+# print(data.condition)
 
 # Get Data in Row
 print(data[data.day == "Monday"])
@@ -48,10 +48,8 @@ monday = data[data["day"] == "Monday"]
 print(f"find a maximum temperature day condition {monday["condition"]}")
 
 # Convert Monday's Temperature to Fahrenheit
-
 monday_temp = int(monday["temp"].iloc[0]) * 9/5 + 32
 print(f"converted temp Fahrenheit {monday_temp}")
-
 
 # Create a Data Frame from scratch
 data_dict = {
