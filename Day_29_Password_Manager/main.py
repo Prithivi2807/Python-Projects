@@ -5,7 +5,6 @@ import pyperclip
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
-# Password Generator Project
 
 def generate_password():
 
@@ -60,6 +59,7 @@ def save():
   else:
     is_ok = messagebox.askokcancel(title=website, message=f"These are the details entered: \nEmail: {email}"
                                                   f"\nPassword: {password} \nIs it ok to save ?")
+
     # messagebox.showinfo(title="Title", message="Message")
 
     if is_ok:

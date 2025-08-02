@@ -1,7 +1,7 @@
 import pandas
 
 # TODO 1. Create a dictionary in this format:
-data = pandas.read_csv(r"C:\Users\Hi\Documents\Python Practice\Day_26_List_Dict_Comprehension\NATO_Alphabet_Project_05\nato_phonetic_alphabet.csv")
+data = pandas.read_csv(r"C:\Users\Hi\Documents\Python_Practice\Day_26_List_Dict_Comprehension\NATO_Alphabet_Project_05\nato_phonetic_alphabet.csv")
 # print(data)
 student_letter = {row.letter:row.code for (index, row) in data.iterrows()}
 # print(student_letter)
