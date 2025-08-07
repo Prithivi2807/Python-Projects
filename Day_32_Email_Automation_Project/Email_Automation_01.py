@@ -1,7 +1,14 @@
 # import smtplib
 
-# my_email = "tikemon200@gmail.com"
-# my_password = "yioebxgjtekqrsln"
+# my_email = "Enter your mail"
+# my_password = "Gmail Security Password"  
+
+# """
+# https://myaccount.google.com/apppasswords
+# create your app password through this link
+
+# """
+
 
 # with smtplib.SMTP("smtp.gmail.com",587) as connection:
 #   connection.starttls() # Nake this connection secure
@@ -13,14 +20,14 @@
 
 
 # Experiment 2
-# import datetime as dt
+import datetime as dt
 
-# now =dt.datetime.now()
-# print(now)
-# year = now.year
-# month = now.month
-# day_of_week = now.weekday()
-# print(day_of_week)
+now =dt.datetime.now()
+print(now)
+year = now.year
+month = now.month
+day_of_week = now.weekday()
+print(day_of_week)
 
-# date_of_birth = dt.datetime(year= 2000, month= 6, day= 2, hour= 8)
-# print(date_of_birth)
+date_of_birth = dt.datetime(year= 2000, month= 6, day= 2, hour= 8)
+print(date_of_birth)
