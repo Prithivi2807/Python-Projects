@@ -1,11 +1,17 @@
+
 import datetime as dt
 import pandas
 import random
 import smtplib
 
-MY_EMAIL = "tikemon200@gmail.com"
-MY_PASSWORD = "yioebxgjtekqrsln"
 
+MY_EMAIL = "Enter your mail"
+MY_PASSWORD = "Gmail Security Password"  
+
+"""
+https://myaccount.google.com/apppasswords
+create your app password through this link
+"""
 today = dt.datetime.now()
 today_tuple = (today.month, today.day)
 
