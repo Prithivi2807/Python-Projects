@@ -5,9 +5,9 @@ from twilio.rest import Client
 
 
 
-# url = "https://api.openweathermap.org/data/2.5/weather?lat=12.82709699438328&lon=78.77788575040059&appid=e7c45666db44505c71c38c9ccac129be"
+# url = "https://api.openweathermap.org/data/2.5/weather?lat=12.82709699438328&lon=78.77788575040059&appid=29be"
 
-api_key = "e7c45666db44505c71c38c9ccac129be"
+api_key = "Enter your own api keys"
 weather_url = "https://api.openweathermap.org/data/2.5/weather?"
 weather_params = {
   "lat": 24.2500,
