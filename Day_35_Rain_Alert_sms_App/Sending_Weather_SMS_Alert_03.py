@@ -2,12 +2,20 @@ import requests
 import os
 from twilio.rest import Client
 
-api_key = "Enter your own api keys"
 weather_url = "https://api.openweathermap.org/data/2.5/weather?"
+
+api_key = "ENTER Your api through twilio account"
+api_key = os.environ.get("OWM_API_KEY")
+
+account_sid = 'ENTER Your sid through twilio account '
+
+auth_token = os.environ.get("AUTH_TOKEN")
+auth_token = 'ENTER Your AUTH_TOKEN through twilio account'
+
 weather_params = {
   "lat": 24.2500,
   "lon": 43.2000,
-  "appid":api_key,
+  "appid":api_key, 
   "exclude":"current, minutely, daily"
 }
 """
@@ -25,34 +33,25 @@ response = requests.get(url=weather_url, params=weather_params)
 # print(response.json())
 weather_data = response.json()
 
-
-# weather_slice = weather_data["hourly"][:12]
-# print(weather_slice)
-
-# will_rain = False
-
-# for hour_data in weather_slice:
-#   condition_code = (hour_data["weather"][0]["id"])
-#   if int(condition_code) < 700:
-#     will_rain = True
-
-# if will_rain:
-  # print("Bring an umbrella.")
-
-# print(weather_data["hourly"][0]["weather"][0]["id"])  ## Not working 
-
 will_rain = False
-
 condition_code = (weather_data["weather"][0]["id"])
-
-
 if int(condition_code) < 900:
   will_rain = True
+  print("Bring an umbrella")
 
 if will_rain:
-  print("Bring an Umbrella.")
+  client = Client(account_sid, auth_token)
+  message = client.messages \
+  .create(
+    body="It's going to rain today. remember to bring an umbrella 🌂 ☔",
+    from_ = '+12187488075',
+    to="Enter your number "
+  )
+
+print(message.status)
+print()
+print(message.sid)
 
 
-
-
-print((weather_data["weather"][0]["id"]))
+# import os 
+# TWILIO_SID = os.getenv("TWILIO_SID")
