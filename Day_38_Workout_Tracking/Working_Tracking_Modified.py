@@ -13,26 +13,14 @@ APP_ID = os.environ["APP_ID"]
 API_KEY = os.environ["API_KEY"]
 AUTH_TOKEN = os.environ["AUTH_TOKEN"]
 
-
-# GENDER = "Male"
-# WEIGHT_KG = 75.2
-# HEIGHT_CM = 180.0
-# AGE = 24
-
-# APP_ID = "a5c654e1"
-# API_KEY = "a1a70deb44116c34fb0e239f9c9efe18"
-
-# AUTH_TOKEN = "veprdaskhlkainthiba3028"
-
-
-
 sheety_headers = {
   "Authorization": f"Bearer {AUTH_TOKEN}"
   }
 
 exercise_endpoint = "https://trackapi.nutritionix.com/v2/natural/exercise"
 
-sheet_endpoint = "https://api.sheety.co/5f4bf42926e63aec53e487d48b4e6bd8/myWorkouts/sheet1"
+# sheet_endpoint= "https://api.sheety.co/code"
+sheet_endpoint = "get through sheety "
 
 exercise_text = input("Tell me which exercises you did: ?")
 

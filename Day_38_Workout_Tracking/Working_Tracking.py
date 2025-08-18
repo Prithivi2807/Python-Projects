@@ -2,13 +2,13 @@ import requests
 from datetime import datetime
 
 
-GENDER = "Male"
-WEIGHT_KG = 75.2
-HEIGHT_CM = 180.0
-AGE = 24
+GENDER = "GENDER"
+WEIGHT_KG = YOUR_WEIGHT
+HEIGHT_CM = YOUR_HEIGHT
+AGE = AGE
 
-APP_ID = "a5c654e1"
-API_KEY = "a1a70deb44116c34fb0e239f9c9efe18"
+APP_ID = "APP_ID"
+API_KEY = "API_KEY"
 
 AUTH_TOKEN = "veprdaskhlkainthiba3028"
 
