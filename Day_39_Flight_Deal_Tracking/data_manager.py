@@ -1,7 +1,6 @@
+from pprint import pprint
 import requests
-
-SHEETY_PRICES_ENDPOINT = "https://api.sheety.co/5f4bf42926e63aec53e487d48b4e6bd8/flightData/sheet1"
-SHEETY_BEARER_TOKEN = "priajptivryvennbthikuanyttukutaamm"
+from config import SHEETY_PRICES_ENDPOINT, SHEETY_BEARER_TOKEN
 
 
 class DataManager:
@@ -13,7 +12,6 @@ class DataManager:
         Initializes the DataManager.
         """
         self.destination_data = {}
-        self.sheet_key = None
         self.headers = {
             "Authorization": f"Bearer {SHEETY_BEARER_TOKEN}"
         }
@@ -25,8 +23,7 @@ class DataManager:
         response = requests.get(url=SHEETY_PRICES_ENDPOINT, headers=self.headers)
         response.raise_for_status()
         data = response.json()
-        self.sheet_key = list(data.keys())[0]
-        self.destination_data = data[self.sheet_key]
+        self.destination_data = data["sheet1"]
         return self.destination_data
 
     def update_destination_codes(self):
