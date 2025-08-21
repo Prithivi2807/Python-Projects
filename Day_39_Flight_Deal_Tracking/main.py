@@ -1,4 +1,27 @@
+import time
+from data_manager import DataManager
+from flight_search import FlightSearch
 
+def main():
+    """
+    This script retrieves flight destination data and updates IATA codes if missing.
+    """
+    data_manager = DataManager()
+    sheet_data = data_manager.get_destination_data()
+    flight_search = FlightSearch()
+
+    if sheet_data and sheet_data[0].get("iataCode") == "":
+        print("Updating IATA codes...")
+        for row in sheet_data:
+            row["iataCode"] = flight_search.get_destination_code(row["city"])
+            time.sleep(1) # To avoid hitting API rate limits
+        data_manager.destination_data = sheet_data
+        data_manager.update_destination_codes()
+        print("IATA codes updated successfully.")
+
+"""
+This file is responsible for running the flight search and sending notifications.
+"""
 import time
 from datetime import datetime, timedelta
 from data_manager import DataManager
@@ -46,9 +69,7 @@ def main():
                     destination_city=flight.destination_city,
                     destination_airport=flight.destination_airport,
                     out_date=flight.out_date,
-                    return_date=flight.return_date,
-                    stop_overs=flight.stop_overs,
-                    via_city=flight.via_city
+                    return_date=flight.return_date
                 )
 
 if __name__ == "__main__":

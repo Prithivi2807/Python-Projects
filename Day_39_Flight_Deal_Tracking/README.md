@@ -34,8 +34,8 @@ AMADEUS_LOCATION_URL = "https://test.api.amadeus.com/v1/reference-data/locations
 AMADEUS_FLIGHT_OFFERS_URL = "https://test.api.amadeus.com/v2/shopping/flight-offers"
 
 
-CLIENT_API = "1D2GveE42z206TbR7A1vKtQ1CalYUAgO"
-CLIENT_SECRET_AUTH = "xg1ePvncwslQTWZT"
+CLIENT_API = "Add Your Amendeus API key Code"
+CLIENT_SECRET_AUTH = "Add Your Amendeus Auth Code "
 
 class FlightSearch:
 
