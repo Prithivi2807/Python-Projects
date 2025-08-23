@@ -1,0 +1,10 @@
+city,iataCode,lowestPrice,id
+Paris,PAR,54,2
+Berlin,BER,42,3
+Tokyo,N/A,485,4
+Sydney,N/A,551,5
+Istanbul,IST,95,6
+Kuala Lumpur,N/A,414,7
+New York,NYC,240,8
+San Francisco,SFO,260,9
+Cape Town,N/A,378,10

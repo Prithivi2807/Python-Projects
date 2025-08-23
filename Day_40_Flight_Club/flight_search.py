@@ -1,4 +1,3 @@
-
 import requests
 from flight_data import FlightData
 import time
@@ -17,6 +16,7 @@ class FlightSearch:
             "client_id": CLIENT_API,
             "client_secret": CLIENT_SECRET_AUTH
         }
+        
         response = requests.post(AMADEUS_AUTH_URL, data=data, headers=headers)
         response.raise_for_status()
         return response.json()["access_token"]
@@ -56,6 +56,18 @@ class FlightSearch:
             response = requests.get(AMADEUS_FLIGHT_OFFERS_URL, headers=headers, params=params)
             response.raise_for_status()
             data = response.json()["data"]
+            flight_data = data[0]
+            
+            return FlightData(
+                price=float(flight_data["price"]["total"]),
+                origin_city=flight_data["itineraries"][0]["segments"][0]["departure"]["iataCode"],
+                origin_airport=flight_data["itineraries"][0]["segments"][0]["departure"]["iataCode"],
+                destination_city=flight_data["itineraries"][0]["segments"][0]["arrival"]["iataCode"],
+                destination_airport=flight_data["itineraries"][0]["segments"][0]["arrival"]["iataCode"],
+                out_date=flight_data["itineraries"][0]["segments"][0]["departure"]["at"].split("T")[0],
+                return_date=flight_data["itineraries"][1]["segments"][0]["departure"]["at"].split("T")[0]
+            )
+
         except (requests.exceptions.HTTPError, KeyError, IndexError):
             print(f"No direct flights found for {destination_city_code}. Trying with 1 stopover.")
             params["nonStop"] = "false"
@@ -64,24 +76,22 @@ class FlightSearch:
                 response = requests.get(AMADEUS_FLIGHT_OFFERS_URL, headers=headers, params=params)
                 response.raise_for_status()
                 data = response.json()["data"]
+                if not data:
+                    print(f"No flights found for {destination_city_code} with 1 stopover either.")
+                    return None
+
+                flight_data = data[0]
+                return FlightData(
+                    price=float(flight_data["price"]["total"]),
+                    origin_city=flight_data["itineraries"][0]["segments"][0]["departure"]["iataCode"],
+                    origin_airport=flight_data["itineraries"][0]["segments"][0]["departure"]["iataCode"],
+                    destination_city=flight_data["itineraries"][0]["segments"][-1]["arrival"]["iataCode"],
+                    destination_airport=flight_data["itineraries"][0]["segments"][-1]["arrival"]["iataCode"],
+                    out_date=flight_data["itineraries"][0]["segments"][0]["departure"]["at"].split("T")[0],
+                    return_date=flight_data["itineraries"][1]["segments"][0]["departure"]["at"].split("T")[0],
+                    stop_overs=1,
+                    via_city=flight_data["itineraries"][0]["segments"][0]["arrival"]["iataCode"]
+                )
             except (requests.exceptions.HTTPError, KeyError, IndexError):
                 print(f"No flights found for {destination_city_code} with 1 stopover either.")
                 return None
-
-        if not data:
-            print("No flights found.")
-            return None
-
-        flight_data = data[0]
-        price = float(flight_data["price"]["total"])
-
-        return FlightData(
-            price=price,
-            origin_city=flight_data["itineraries"][0]["segments"][0]["departure"]["iataCode"],
-            origin_airport=flight_data["itineraries"][0]["segments"][0]["departure"]["iataCode"],
-            destination_city=flight_data["itineraries"][0]["segments"][-1]["arrival"]["iataCode"],
-            destination_airport=flight_data["itineraries"][0]["segments"][-1]["arrival"]["iataCode"],
-            out_date=flight_data["itineraries"][0]["segments"][0]["departure"]["at"].split("T")[0],
-            return_date=flight_data["itineraries"][1]["segments"][0]["departure"]["at"].split("T")[0],
-            stop_overs=len(flight_data["itineraries"][0]["segments"]) - 1
-        )
